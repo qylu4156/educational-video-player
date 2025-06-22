@@ -8,8 +8,8 @@
 
   display: grid;
   grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
+  align-items: top;
+  justify-items: left;
   min-height: 100svh;
   padding: 80px;
   gap: 64px;
@@ -106,6 +106,18 @@ a.secondary {
 
 .footer img {
   flex-shrink: 0;
+}
+
+.header {
+  grid-row-start: auto;
+  display: flex;
+  gap: 24px;
+}
+
+.header a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 /* Enable hover only on non-touch devices */
