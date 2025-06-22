@@ -1,12 +1,35 @@
+// Code for the home page.
 'use client'
-// import Image from "next/image";
 import { useState, useEffect } from 'react';
-import styles from "./page.module.css";
-// import Link from "next/link";
 
+import styles from "./page.module.css";
 import VideoList from "/src/app/components/video-list.js";
 import HeaderBar from "/src/app/components/header.js";
 
+// Component for a login page. Saves userID to session storage.
+function LoginPage({ onSubmit }) {
+  function login(formData) {
+    const userID = formData.get("userID")
+    sessionStorage.setItem("userID", userID)
+    onSubmit(userID);
+  };
+  
+  return (
+    <div className={styles.page}>
+      <main className={styles.main}>
+        <h1>Log in</h1>
+        <form action={login}>
+          <input type="text" name="userID" placeholder="User ID" />
+          <br />
+          <button type="submit">Log in</button>
+        </form>
+      </main>
+    </div>
+  )
+}
+
+// Component for the home page. Displays a login page if userID is not set,
+// otherwise displays a list of videos posted by the logged in user.
 export default function Home() {
   const [userID, setUserID] = useState(null);
 
@@ -15,24 +38,9 @@ export default function Home() {
     setUserID(storedUserID);
   }, []);
 
-  function login(formData) {
-    const userID = formData.get("userID")
-    sessionStorage.setItem("userID", userID)
-    setUserID(userID);
-}
-
   if (!userID) {
     return (
-      <div className={styles.page}>
-        <main className={styles.main}>
-          <h1>Log in</h1>
-          <form action={login}>
-            <input type="text" name="userID" placeholder="User ID" />
-            <br />
-            <button type="submit">Log in</button>
-          </form>
-        </main>
-      </div>
+      <LoginPage onSubmit={(x) => setUserID(x)}/>
     )
   } else {
     return (

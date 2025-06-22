@@ -1,9 +1,7 @@
+// Code to display a list of comments.
 'use client'
 
-import { getComments } from "../lib/api.js";
-
-import { useState, useEffect } from 'react';
-
+// Component to display a single comment.
 export function Comment(params) {
     const createdAt = new Date(params.created_at);
     return (
@@ -15,6 +13,7 @@ export function Comment(params) {
     )
 }
 
+// Component to display a list of comments.
 export default function CommentList({ commentList }) {
     const listItems = commentList.map(comment => {
         return (

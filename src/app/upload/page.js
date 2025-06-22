@@ -1,3 +1,4 @@
+// Code for the upload video page
 'use client'
 
 import styles from "/src/app/page.module.css";
