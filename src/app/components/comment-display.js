@@ -16,6 +16,7 @@ export default function CommentDisplay({ videoID }) {
 
     // Asynchronously load comments for the current video.
     async function fetchComments() {
+        console.log("fetching comments");
         setLoading(true);
         try {
             const comments = await getComments(videoID);
@@ -29,7 +30,7 @@ export default function CommentDisplay({ videoID }) {
     // Call fetchComments in a useEffect hook to synchronize with the external API.
     useEffect(() => {
         fetchComments();
-    });
+    }, []);
 
     // TODO: with more time, I would update this component to hide the PostCommentForm
     // if videoID is not valid. That would ensure no comments are posted on videos that do not exist.
