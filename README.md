@@ -15,6 +15,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ### Log in
 The first thing you will see is a login page which prompts you to enter a user ID. This will be the user ID used to fetch the list of posted videos and the user ID associated with video uploads.
 
+User ID is stored in session storage. For testing purposes, you can open the console and delete it from session storage to log in as a different user. A more complete version of the site would provide an option to log out.
+
 ![login page](public/login_page.png)
 
 ### Home page
