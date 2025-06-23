@@ -33,7 +33,7 @@ export default function CommentDisplay({ videoID }) {
     }, []);
 
     // TODO: with more time, I would update this component to hide the PostCommentForm
-    // if videoID is not valid. That would ensure no comments are posted on videos that do not exist.
+    // if videoID is not valid, to ensure that comments cannot be posted on videos that do not exist.
 
     // Hide the CommentList until comments load (or if the video has no comments)
     // We pass fetchComments to PostCommentForm as a prop so it can refresh the list of comments

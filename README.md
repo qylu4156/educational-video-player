@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Build instructions
 
-## Getting Started
-
-First, run the development server:
+Build and run the site using npm.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm build
+npm start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Site tour
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Log in
+The first thing you will see is a login page which prompts you to enter a user ID. This will be the user ID used to fetch the list of posted videos and the user ID associated with video uploads.
 
-## Learn More
+![login page](public/login_page.png)
 
-To learn more about Next.js, take a look at the following resources:
+### Home page
+After logging in, all pages contain a header bar with links to the Home and Upload pages, as well as the logged in user.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The home page contains a list of videos posted by the logged in user, with the title, thumbnail, user ID, timestamp, and number of comments.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+![main page](public/main_page.png)
 
-## Deploy on Vercel
+### Video page
+Clicking on the title of a video from the home page will bring you to a page for that video.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This page displays the title, user ID, timestamp, and description. The player embeds with controls from the source of the video (YouTube controls in this case).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+![video page](public/video_page.png)
+
+If you scroll down, you will see a list of comments and a form to post a new comment.
+
+![comments list](public/new_comment.png)
+
+After clicking submit, a status message will show and the list of comments will immediately update with the new comment.
+
+![new comment posted](public/new_comment_posted.png)
+
+### Upload page
+To upload a new video, click "Upload" on the header bar from any page.
+
+You can enter a URL, title, and description for the new video.
+
+![upload page](public/upload_page.png)
+
+After entering a valid URL in the form, a thumbnail preview of the video will appear below the upload form.
+
+![upload video preview](public/upload_preview.png)

@@ -70,3 +70,5 @@ export default function VideoUploader() {
         </>
     )
 }
+
+// TODO: with more time, I would make this redirect to the page of the uploaded video upon successful submit.
